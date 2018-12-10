@@ -10,3 +10,7 @@ bindkey '^[[1;5D' backward-word
 if [[ "${terminfo[kcbt]}" != "" ]]; then
     bindkey "${terminfo[kcbt]}" reverse-menu-complete
 fi
+
+bindkey '\eOA' history-substring-search-up
+
+bindkey '\eOB' history-substring-search-down

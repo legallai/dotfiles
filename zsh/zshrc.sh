@@ -1,5 +1,9 @@
 CURRENT_DIR=$(dirname $(readlink -f $0))
 
+# third party plugins ------------------------------------------------------------------ #
+
+source $CURRENT_DIR/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
 # personal config ---------------------------------------------------------------------- #
 
 source $CURRENT_DIR/aliases_functions.sh
