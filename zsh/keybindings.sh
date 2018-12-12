@@ -11,3 +11,6 @@ bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+bindkey '^H' backward-delete-word
