@@ -5,8 +5,8 @@ if [[ "${terminfo[kcbt]}" != "" ]]; then
     bindkey "${terminfo[kcbt]}" reverse-menu-complete
 fi
 
-bindkey '^[[1;5C' forward-word # desn't work in tmux
-bindkey '^[[1;5D' backward-word # desn't work in tmux
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
 bindkey '\eOA' history-substring-search-up
 bindkey '\eOB' history-substring-search-down
 bindkey '^A' beginning-of-line
