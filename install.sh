@@ -22,6 +22,10 @@ fi
 if [[ -f ~/.tmux.conf ]]; then
     mv ~/.tmux.conf ~/.tmux.conf.old
 fi
+if [[ -f ~/.vimrc ]]; then
+    mv ~/.vimrc ~/.vimrc.old
+fi
 
 echo "source $HOME/dotfiles/zsh/zshrc.sh" > ~/.zshrc
 echo "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
+echo "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
