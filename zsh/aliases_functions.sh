@@ -50,6 +50,8 @@ alias gss3='git show stash@{3}'
 alias gss4='git show stash@{4}'
 alias gst='git status'
 alias gsu='git submodule update --init'
+alias gwtl='git worktree list'
+alias gwtr='git worktree remove .'
 
 alias -g glog='git log --color=always --oneline --decorate --graph'
 alias -g gloga='glog --all'
@@ -97,3 +99,10 @@ gbfc() {
     git checkout $1
 }
 compdef _git gbfc="git-branch"
+
+gwta() {(
+    set -e
+    DIRNAME="$(pwd)-$(git worktree list C)"
+    git worktree add $DIRNAME "${1:-master}"
+    tmux new-window -c $(realpath $DIRNAME)
+)}
