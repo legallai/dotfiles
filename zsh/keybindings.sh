@@ -13,3 +13,4 @@ bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
 bindkey '^K' vi-kill-eol
 bindkey '^U' backward-kill-line
+
