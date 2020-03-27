@@ -62,6 +62,41 @@ alias glogsl='watch --color -n 3 -t glogs'
 
 # Functions ---------------------------------------------------------------------------- #
 
+gsta() {
+    for d in $(ls)
+    do
+        cd $d
+
+        GIT_CHANGES=$(git status --short | wc -l)
+        GIT_BRANCHES=$(git branch -vv --color=always | grep -E "ahead|behind")
+        STASH_QTY=$(git stash list | wc -l)
+
+        if [ $GIT_CHANGES -gt 0 ] || [ ! -z "$GIT_BRANCHES" ] || [ $STASH_QTY -gt 0 ]; then
+            printf "=============== $d ===============\n"
+        fi
+
+        if [ $GIT_CHANGES -gt 0 ]; then
+            printf "\n"
+            gst
+        fi
+        if [ ! -z "$GIT_BRANCHES" ]; then
+            printf "\n"
+            echo $GIT_BRANCHES
+        fi
+        if [ $STASH_QTY -gt 0 ]; then
+            printf "\n"
+            echo -n "$fg[yellow]You have $STASH_QTY stashe(s)$reset_color"
+            printf "\n"
+        fi
+
+        if [ $GIT_CHANGES -gt 0 ] || [ ! -z "$GIT_BRANCHES" ] || [ $STASH_QTY -gt 0 ]; then
+            printf "\n"
+        fi
+
+        cd ..
+    done
+}
+
 cdls() {
     cd $1
     ls
