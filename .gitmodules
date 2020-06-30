@@ -4,6 +4,9 @@
 [submodule "zsh/plugins/zsh-autosuggestions"]
 	path = zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "zsh/plugins/zsh-you-should-use"]
+	path = zsh/plugins/zsh-you-should-use
+	url = git@github.com:MichaelAquilina/zsh-you-should-use.git
 [submodule "submodules/z"]
 	path = submodules/z
 	url = https://github.com/rupa/z.git

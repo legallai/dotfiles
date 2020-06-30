@@ -4,6 +4,7 @@ CURRENT_DIR=$(dirname $(readlink -f $0))
 
 source $CURRENT_DIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $CURRENT_DIR/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $CURRENT_DIR/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 . $CURRENT_DIR/../submodules/z/z.sh
 
 # personal config ---------------------------------------------------------------------- #
