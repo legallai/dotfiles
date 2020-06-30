@@ -70,11 +70,12 @@ alias glogsl='watch --color -n 3 -t glogs'
 
 gstvv() {
     GIT_CHANGES=$(git status --short | wc -l)
-    GIT_BRANCHES=$(git branch -vv --color=always | grep -E "ahead|behind")
+    GIT_BRANCHES_NOT_PUSHED=$(git branch -vv --color=always | grep -E "ahead|behind")
+    GIT_BRANCHES_NO_UPSTREAM=$(git branch -vv --color=always | grep -v "\[*\]")
     STASH_QTY=$(git stash list | wc -l)
 
     if [ ! -z "$1" ]; then
-        if [ $GIT_CHANGES -gt 0 ] || [ ! -z "$GIT_BRANCHES" ] || [ $STASH_QTY -gt 0 ]; then
+        if [ $GIT_CHANGES -gt 0 ] || [ ! -z "$GIT_BRANCHES_NOT_PUSHED" ] || [ ! -z "$GIT_BRANCHES_NO_UPSTREAM" ] || [ $STASH_QTY -gt 0 ]; then
             printf "=============== $1 ===============\n"
         fi
     fi
@@ -83,9 +84,13 @@ gstvv() {
         printf "\n"
         gst
     fi
-    if [ ! -z "$GIT_BRANCHES" ]; then
+    if [ ! -z "$GIT_BRANCHES_NOT_PUSHED" ]; then
         printf "\n"
-        echo $GIT_BRANCHES
+        echo $GIT_BRANCHES_NOT_PUSHED
+    fi
+    if [ ! -z "$GIT_BRANCHES_NO_UPSTREAM" ]; then
+        printf "\n"
+        echo $GIT_BRANCHES_NO_UPSTREAM
     fi
     if [ $STASH_QTY -gt 0 ]; then
         printf "\n"
@@ -93,7 +98,7 @@ gstvv() {
         printf "\n"
     fi
 
-    if [ $GIT_CHANGES -gt 0 ] || [ ! -z "$GIT_BRANCHES" ] || [ $STASH_QTY -gt 0 ]; then
+    if [ $GIT_CHANGES -gt 0 ] || [ ! -z "$GIT_BRANCHES_NOT_PUSHED" ] || [ ! -z "$GIT_BRANCHES_NO_UPSTREAM" ] || [ $STASH_QTY -gt 0 ]; then
         printf "\n"
     fi
 }
