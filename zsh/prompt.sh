@@ -26,3 +26,14 @@ set_prompt() {
 }
 
 PS1='$(set_prompt)'
+
+del-prompt-accept-line() {
+    OLD_PROMPT="$PROMPT"
+    PROMPT="> "
+    zle reset-prompt
+    PROMPT="$OLD_PROMPT"
+    zle accept-line
+}
+
+zle -N del-prompt-accept-line
+bindkey "^M" del-prompt-accept-line
