@@ -162,3 +162,9 @@ gwta() {(
     git worktree add $DIRNAME "${1:-master}"
     tmux new-window -c $(realpath $DIRNAME)
 )}
+
+gc_date() {
+    export GIT_COMMITTER_DATE="$1"
+    git commit --date "$1"
+    unset GIT_COMMITTER_DATE
+}
