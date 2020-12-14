@@ -69,6 +69,12 @@ alias glogsl='watch --color -n 3 -t glogs'
 # Functions ---------------------------------------------------------------------------- #
 
 gstvv() {
+    git -C . rev-parse
+    if [ $? -ne 0 ]; then
+        printf "xxxxxxxxxxxxxxx $1 xxxxxxxxxxxxxxx\n"
+        return 1
+    fi
+
     GIT_CHANGES=$(git status --short | wc -l)
     GIT_BRANCHES_NOT_PUSHED=$(git branch -vv --color=always | grep -E "ahead|behind")
     GIT_BRANCHES_NO_UPSTREAM=$(git branch -vv --color=always | grep -v "\[*\]")
