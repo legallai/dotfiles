@@ -104,7 +104,7 @@ gstvv() {
 }
 
 gsta() {
-    for d in $(ls)
+    for d in $(ls -d */)
     do
         cd $d
         gstvv $d
