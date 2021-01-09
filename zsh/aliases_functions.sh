@@ -61,7 +61,7 @@ alias gwtr='git worktree remove .'
 
 alias -g glog='git log --color=always --oneline --decorate --graph'
 alias -g gloga='glog --all'
-alias -g glogs='glog --branches --tags --remotes={origin,adrien} HEAD'
+alias -g glogs='glog --branches --tags HEAD'
 alias glogal='watch --color -n 3 -t gloga'
 alias glogl='watch --color -n 3 -t glog'
 alias glogsl='watch --color -n 3 -t glogs'
