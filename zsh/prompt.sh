@@ -14,6 +14,7 @@ set_prompt() {
         STASH_QTY=$(git stash list | wc -l)
         echo -n ", "
         echo -n "%{$fg[blue]%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)%{$reset_color%}"
+        echo -n " "
         if [ $GIT_CHANGES -gt 0 ]; then
             echo -n "%{$fg[red]%}+$(echo -n $GIT_CHANGES | awk '{$1=$1};1')%{$reset_color%}"
         fi
