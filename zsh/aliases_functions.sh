@@ -168,3 +168,15 @@ gc_date() {
     git commit --date "$1"
     unset GIT_COMMITTER_DATE
 }
+
+gc_date_!() {
+    export GIT_COMMITTER_DATE="$1"
+    git commit --date "$1" --amend
+    unset GIT_COMMITTER_DATE
+}
+
+gc_date_n!() {
+    export GIT_COMMITTER_DATE="$1"
+    git commit --date "$1" --no-edit --amend
+    unset GIT_COMMITTER_DATE
+}
