@@ -11,7 +11,7 @@ alias -g ......='../../../../..'
 
 alias -g C='| wc -l'
 
-alias ls='ls --color=auto'
+alias ls='ls -G'
 alias ll='ls -lh'
 alias la='ls -lah'
 
@@ -75,10 +75,10 @@ gstvv() {
         return 1
     fi
 
-    GIT_CHANGES=$(git status --short | wc -l)
+    GIT_CHANGES=$(expr $(git status --short | wc -l))
     GIT_BRANCHES_NOT_PUSHED=$(git branch -vv --color=always | grep -E "ahead|behind")
     GIT_BRANCHES_NO_UPSTREAM=$(git branch -vv --color=always | grep -v "\[*\]")
-    STASH_QTY=$(git stash list | wc -l)
+    STASH_QTY=$(expr $(git stash list | wc -l))
 
     if [ ! -z "$1" ]; then
         if [ $GIT_CHANGES -gt 0 ] || [ ! -z "$GIT_BRANCHES_NOT_PUSHED" ] || [ ! -z "$GIT_BRANCHES_NO_UPSTREAM" ] || [ $STASH_QTY -gt 0 ]; then

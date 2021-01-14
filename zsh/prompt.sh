@@ -10,8 +10,8 @@ set_prompt() {
 
     # Git
     if git rev-parse --is-inside-work-tree 2> /dev/null | grep -q "true" ; then
-        GIT_CHANGES=$(git status --short | wc -l)
-        STASH_QTY=$(git stash list | wc -l)
+        GIT_CHANGES=$(expr $(git status --short | wc -l))
+        STASH_QTY=$(expr $(git stash list | wc -l))
         echo -n ", "
         echo -n "%{$fg[blue]%}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)%{$reset_color%}"
         echo -n " "
