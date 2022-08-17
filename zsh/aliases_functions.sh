@@ -77,7 +77,7 @@ gstvv() {
 
     GIT_CHANGES=$(git status --short | wc -l)
     GIT_BRANCHES_NOT_PUSHED=$(git branch -vv --color=always | grep -E "ahead|behind")
-    GIT_BRANCHES_NO_UPSTREAM=$(git branch -vv --color=always | grep -v "\[*\]")
+    GIT_BRANCHES_NO_UPSTREAM=$(git branch -vv --color=always | grep -v "\[*\]" | grep -v "backup/")
     STASH_QTY=$(git stash list | wc -l)
 
     if [ ! -z "$1" ]; then
