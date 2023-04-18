@@ -14,8 +14,8 @@ zle -N up-a-directory
 
 bindkey '^[[1;5C' forward-word
 bindkey '^[[1;5D' backward-word
-bindkey '\eOA' history-substring-search-up
-bindkey '\eOB' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 bindkey '^A' beginning-of-line
 bindkey '^B' up-a-directory
 bindkey '^E' end-of-line
