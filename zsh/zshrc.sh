@@ -1,4 +1,10 @@
-CURRENT_DIR=$(dirname $(readlink -f $0))
+CURRENT_DIR="`dirname \"$0\"`"  # relative
+CURRENT_DIR="`( cd \"$CURRENT_DIR\" && pwd )`"  # absolutized and normalized
+if [ -z "$CURRENT_DIR" ] ; then
+  # error; for some reason, the path is not accessible
+  # to the script (e.g. permissions re-evaled after suid)
+  exit 1  # fail
+fi
 
 # third party plugins ------------------------------------------------------------------ #
 
