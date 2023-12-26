@@ -58,6 +58,7 @@ alias gst='git status'
 alias gsu='git submodule update --init'
 alias gwtl='git worktree list'
 alias gwtr='git worktree remove .'
+alias gbp="git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
 
 alias -g glog='git log --color=always --oneline --decorate --graph'
 alias -g gloga='glog --all'
