@@ -6,7 +6,7 @@ install() {
     elif [ -x "$(command -v pacman)" ]; then
         sudo pacman -S "$1"
     elif [ -x "$(command -v brew)" ]; then
-        sudo brew -S "$1"
+        brew -S "$1"
     else
         echo "You don't appear to be using a package manager I know of, please install $1 manually"
     fi
