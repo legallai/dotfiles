@@ -36,6 +36,17 @@ set_prompt() {
         fi
     fi
 
+    TMUX_SESSIONS_COUNT=$(tmux list-sessions 2> /dev/null | wc -l | awk '{$1=$1};1')
+
+    if [ -n "$TMUX" ]; then
+        TMUX_SESSIONS_COUNT=$(($TMUX_SESSIONS_COUNT-1))
+    fi
+
+    if (( $TMUX_SESSIONS_COUNT > 0 )); then
+        echo -n " "
+        echo -n "%{$fg[magenta]%}$(echo -n $TMUX_SESSIONS_COUNT)%{$reset_color%}"
+    fi
+
     echo -n "%{$fg[white]%}: %{$reset_color%}%"
 }
 
