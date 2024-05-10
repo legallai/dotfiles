@@ -15,6 +15,7 @@ install() {
 install zsh
 install tmux
 install vim
+install zoxide
 
 chsh -s "$(command -v zsh)"
 
