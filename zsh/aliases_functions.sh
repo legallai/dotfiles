@@ -67,6 +67,8 @@ alias glogal='watch --color -n 3 -t gloga'
 alias glogl='watch --color -n 3 -t glog'
 alias glogsl='watch --color -n 3 -t glogs'
 
+alias setsession='tmux rename-session $(basename "`pwd`")'
+
 # Functions ---------------------------------------------------------------------------- #
 
 gstvv() {
