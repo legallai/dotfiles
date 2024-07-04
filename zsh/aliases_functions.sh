@@ -63,6 +63,7 @@ alias gbp="git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
 alias -g glog='git log --color=always --oneline --decorate --graph'
 alias -g gloga='glog --all'
 alias -g glogs='glog --branches --tags HEAD'
+alias -g glo='glog | head -10'
 alias glogal='watch --color -n 3 -t gloga'
 alias glogl='watch --color -n 3 -t glog'
 alias glogsl='watch --color -n 3 -t glogs'
