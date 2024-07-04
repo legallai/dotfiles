@@ -1,5 +1,5 @@
 HISTFILE=~/.zsh_history
-HISTSIZE=1000000000
+HISTSIZE=10000
 SAVEHIST=$HISTSIZE
 setopt EXTENDED_HISTORY
 # add commands to HISTFILE in order of execution
