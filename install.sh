@@ -32,3 +32,5 @@ fi
 echo "source $HOME/dotfiles/zsh/zshrc.sh" > ~/.zshrc
 echo "source-file $HOME/dotfiles/tmux/tmux.conf" > ~/.tmux.conf
 # echo "so $HOME/dotfiles/vim/vimrc.vim" > ~/.vimrc
+
+ln -sf $HOME/dotfiles/nvim $HOME/.config/nvim
