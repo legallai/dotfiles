@@ -20,4 +20,4 @@ setopt hist_ignore_dups
 # Sort filenames numerically when it makes sense
 setopt numericglobsort
 
-export VISUAL=vim
+export VISUAL=nvim
