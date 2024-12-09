@@ -7,6 +7,3 @@
 [submodule "zsh/plugins/zsh-you-should-use"]
 	path = zsh/plugins/zsh-you-should-use
 	url = git@github.com:MichaelAquilina/zsh-you-should-use.git
-[submodule "submodules/z"]
-	path = submodules/z
-	url = https://github.com/rupa/z.git
