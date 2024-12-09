@@ -53,7 +53,21 @@ return { -- Fuzzy Finder (files, lsp, etc)
 			--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
 			--   },
 			-- },
-			-- pickers = {}
+			defaults = {
+				layout_strategy = "vertical",
+			},
+			pickers = {
+				buffers = {
+					mappings = {
+						i = {
+							["<C-d>"] = require("telescope.actions").delete_buffer,
+						},
+					},
+				},
+				colorscheme = {
+					enable_preview = true,
+				},
+			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
