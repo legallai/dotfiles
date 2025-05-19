@@ -6,17 +6,10 @@ setopt PROMPT_SUBST
 
 set_prompt() {
     # name @ hostname
-    if [ $(hostname) = "WJVVD2M9JH" ]; then
-        echo -n "adrien"
-        echo -n "@"
-        echo -n "MacBook"
-        echo -n ", "
-    else
-        echo -n "%n"
-        echo -n "@"
-        echo -n "%m"
-        echo -n ", "
-    fi
+    echo -n "%n"
+    echo -n "@"
+    echo -n "%m"
+    echo -n ", "
 
     # Path: http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/
     echo -n "%{$fg_bold[cyan]%}${PWD/#$HOME/~}%{$reset_color%}"
