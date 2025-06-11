@@ -167,7 +167,7 @@ compdef _git gbfc="git-branch"
 
 gwta() {(
     set -e
-    DIRNAME="$(pwd)-$(git worktree list C)"
+    DIRNAME="$(pwd)-$(git worktree list | wc -l | awk '{$1=$1};1')"
     git worktree add $DIRNAME "${1:-master}"
     tmux new-window -c $(realpath $DIRNAME)
 )}
